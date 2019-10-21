@@ -1,6 +1,6 @@
 
 team_name = 'team5' # Only 10 chars displayed.
-strategy_name = 'Collude first 50 rounds unless betrayed. Betray round 76 forward.'
+strategy_name = 'Collude first 50 rounds unless betrayed. Betray round 51 forward.'
 strategy_description = '''\
 Betray if ever betrayed.
 If I haven't been betrayed yet, I'll betray starting with the 51st round.

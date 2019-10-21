@@ -7,8 +7,8 @@
 ####
 
 team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+strategy_name = 'false mirror'
+strategy_description = 'mirror until cheat then work with average'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -25,8 +25,19 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    
-    return 'c'
+    test = True
+    av=0
+    for move in their_history:
+        if move=='b':
+            av+=1
+            test=False
+    if test==True:
+        return their_history[-1]
+    else:
+        if float(av)/float(len(their_history))>=0.5:
+            return 'b'
+        else:
+            return 'c'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):

@@ -7,9 +7,9 @@ import random
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'Commited to MASTER' # Only 10 chars displayed.
-strategy_name = 'Random choices cause YOLO'
-strategy_description = 'It does not, the computer DECIDES'
+team_name = 'Commit F' # Only 10 chars displayed.
+strategy_name = 'Betray or 50/50'
+strategy_description = 'If they betrayed last round, then betary, else random choices cause YOLO'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -19,9 +19,15 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b'. 
     '''
     '''commit to master.y'''
+    if 'b' in their_history:
+        return 'b'
+    else:
+        if random.random()<0.5: # 50% of the other rounds
+            return 'b'         # Betray
+        else:
+            return 'c'         # 50% of the time collude
     
-    x=random.choice(['c', 'b'])
-    return x
+    
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
     # The first round between these two players is my_history[0] and their_history[0].

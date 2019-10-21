@@ -11,8 +11,21 @@ strategy_name = 'betray'
 strategy_description = 'infinte betrayal'
     
 def move(my_history, their_history, my_score, their_score):
-    c=b 
-    return x 
+    their_betray_count = 0
+    their_collude_count = 0
+    for their_past_move in their_history:
+        if(their_history[their_past_move] == 'b'):
+            their_betray_count = their_betray_count + 1
+        elif(their_history[their_past_move] == 'c'):
+            their_collude_count = their_collude_count + 1
+    if (their_betray_count >= their_collude_count):
+            return 'b'
+    elif (their_collude_count >= their_betray_count):
+            return 'c'
+   
+   
+
+            
     '''
 
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
@@ -23,7 +36,7 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
+    return 'b'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
